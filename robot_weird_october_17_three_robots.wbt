@@ -1,0 +1,1552 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.47976523567055784 0.8466826862929931 0.23011681245327428 5.226464791684696
+  position -2.89583052345765 2.0722451765686953 1.9325633396198454
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.05722 1.0103e-14 -0.0148913
+  floorSize 2 2
+  floorTileSize 1 1
+  floorAppearance Parquetry {
+    type "light strip"
+    colorOverride 0.8 1 1
+  }
+}
+Fluid {
+  translation -0.05 0 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.9 1
+        transparency 0.4
+      }
+      geometry Box {
+        size 2 0.1 2
+      }
+    }
+  ]
+  name "water"
+  boundingObject Box {
+    size 2 0.09 2
+  }
+  translationStep 0.4
+}
+DEF plate_1 Robot {
+  translation -0.8 0.054147 -0.6
+  rotation 0 0 1 0
+  children [
+    HingeJoint {
+      endPoint Camera {
+        translation 0 -0.01 0
+        rotation 0.7071067811865475 0 0.7071067811865475 -1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.5 1 1
+            }
+            geometry Sphere {
+              radius 0.02
+            }
+          }
+        ]
+        recognitionColors [
+          0.2 0.2 0.2
+          1 0 0
+        ]
+        fieldOfView 1
+        lens Lens {
+        }
+        zoom Zoom {
+        }
+        recognition Recognition {
+          segmentation TRUE
+        }
+      }
+    }
+    DEF gps_side_2 GPS {
+      children [
+        GPS {
+          translation 0 0.01 0.05
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 1
+              }
+              geometry Sphere {
+                radius 0.009
+              }
+            }
+          ]
+        }
+      ]
+      name "gps_side_2"
+    }
+    DEF gps_side_3 GPS {
+      translation -0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_3"
+    }
+    DEF gps_side_1 GPS {
+      translation 0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_1"
+    }
+    DEF ps4_plate DistanceSensor {
+      translation 0 0 -0.05
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.5
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps4_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      translationStep 0
+      rotationStep 0
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      redColorSensitivity 2
+    }
+    DEF ps2_plate DistanceSensor {
+      translation 0 0 0.05
+      rotation 0 1 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps2_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      rotationStep 0.26179
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+    }
+    DEF ps1_plate DistanceSensor {
+      translation 0.05 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.5 0.5
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps1_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      recognitionColors [
+        1 0 0
+      ]
+      lookupTable [
+        0 0.9 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF ps3_plate DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 -3.0106996938995745
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps3_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF gps_side_4 GPS {
+      translation 0 0.01 -0.05
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.5 1 0.5
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_4"
+    }
+    DEF prop2 Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust 0 0 0.6
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor2 RotationalMotor {
+        name "motor2"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 0.06
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF prop4 Propeller {
+      shaftAxis 0 0 -1
+      centerOfThrust 0.2 0.05 0
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor4 RotationalMotor {
+        name "motor4"
+        acceleration 10
+        maxVelocity 15
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 -0.05
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.05
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    Transform {
+    }
+    DEF prop3 Propeller {
+      shaftAxis -1 0 0
+      centerOfThrust 0 0.05 -0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor3 RotationalMotor {
+        name "motor3"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation -0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        immersionProperties [
+          ImmersionProperties {
+            fluidName "water"
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+        locked TRUE
+      }
+    }
+    DEF prop1 Propeller {
+      centerOfThrust 0 0.5 0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor1 RotationalMotor {
+        name "motor1"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.2 0.2
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.03 0.1
+      }
+    }
+  ]
+  name "plate_1"
+  immersionProperties [
+    ImmersionProperties {
+      fluidName "water"
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.03 0.1
+  }
+  physics Physics {
+    density 10
+    mass 0.04
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+  controller "weird_prop"
+  battery [
+    0
+  ]
+}
+DEF plate_3 Robot {
+  translation -0.5 0.054147 -0.6
+  rotation 0 0 1 0
+  children [
+    HingeJoint {
+      endPoint Camera {
+        translation 0 -0.01 0
+        rotation 0.7071067811865475 0 0.7071067811865475 -1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.5 1 1
+            }
+            geometry Sphere {
+              radius 0.02
+            }
+          }
+        ]
+        recognitionColors [
+          0.2 0.2 0.2
+          1 0 0
+        ]
+        fieldOfView 1
+        lens Lens {
+        }
+        zoom Zoom {
+        }
+        recognition Recognition {
+          segmentation TRUE
+        }
+      }
+    }
+    DEF gps_side_2 GPS {
+      children [
+        GPS {
+          translation 0 0.01 0.05
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 1
+              }
+              geometry Sphere {
+                radius 0.009
+              }
+            }
+          ]
+        }
+      ]
+      name "gps_side_2"
+    }
+    DEF gps_side_3 GPS {
+      translation -0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_3"
+    }
+    DEF gps_side_1 GPS {
+      translation 0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_1"
+    }
+    DEF ps4_plate DistanceSensor {
+      translation 0 0 -0.05
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.5
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps4_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      translationStep 0
+      rotationStep 0
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      redColorSensitivity 2
+    }
+    DEF ps2_plate DistanceSensor {
+      translation 0 0 0.05
+      rotation 0 1 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps2_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      rotationStep 0.26179
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+    }
+    DEF ps1_plate DistanceSensor {
+      translation 0.05 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.5 0.5
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps1_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      recognitionColors [
+        1 0 0
+      ]
+      lookupTable [
+        0 0.9 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF ps3_plate DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 -3.0106996938995745
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps3_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF gps_side_4 GPS {
+      translation 0 0.01 -0.05
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.5 1 0.5
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_4"
+    }
+    DEF prop2 Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust 0 0 0.6
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor2 RotationalMotor {
+        name "motor2"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 0.06
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF prop4 Propeller {
+      shaftAxis 0 0 -1
+      centerOfThrust 0.2 0.05 0
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor4 RotationalMotor {
+        name "motor4"
+        acceleration 10
+        maxVelocity 15
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 -0.05
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.05
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    Transform {
+    }
+    DEF prop3 Propeller {
+      shaftAxis -1 0 0
+      centerOfThrust 0 0.05 -0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor3 RotationalMotor {
+        name "motor3"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation -0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        immersionProperties [
+          ImmersionProperties {
+            fluidName "water"
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+        locked TRUE
+      }
+    }
+    DEF prop1 Propeller {
+      centerOfThrust 0 0.5 0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor1 RotationalMotor {
+        name "motor1"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.2 0.2
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.03 0.1
+      }
+    }
+  ]
+  name "plate_3"
+  immersionProperties [
+    ImmersionProperties {
+      fluidName "water"
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.03 0.1
+  }
+  physics Physics {
+    density 10
+    mass 0.04
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+  controller "weird_prop3"
+  battery [
+    0
+  ]
+}
+DEF plate_2 Robot {
+  translation 0.5 0.054147 0.2
+  rotation 0 0 1 0
+  children [
+    HingeJoint {
+      endPoint Camera {
+        translation 0 -0.01 0
+        rotation 0.7071067811865475 0 0.7071067811865475 -1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.5 1 1
+            }
+            geometry Sphere {
+              radius 0.02
+            }
+          }
+        ]
+        recognitionColors [
+          0.2 0.2 0.2
+          1 0 0
+        ]
+        fieldOfView 1
+        lens Lens {
+        }
+        zoom Zoom {
+        }
+        recognition Recognition {
+          segmentation TRUE
+        }
+      }
+    }
+    DEF gps_side_2 GPS {
+      children [
+        GPS {
+          translation 0 0.01 0.05
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 0 1
+              }
+              geometry Sphere {
+                radius 0.009
+              }
+            }
+          ]
+        }
+      ]
+      name "gps_side_2"
+    }
+    DEF gps_side_3 GPS {
+      translation -0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_3"
+    }
+    DEF gps_side_1 GPS {
+      translation 0.05 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_1"
+    }
+    DEF ps4_plate DistanceSensor {
+      translation 0 0 -0.05
+      rotation 0 1 0 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 0.5
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps4_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      translationStep 0
+      rotationStep 0
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      redColorSensitivity 2
+    }
+    DEF ps2_plate DistanceSensor {
+      translation 0 0 0.05
+      rotation 0 1 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps2_plate"
+      immersionProperties [
+        DEF water ImmersionProperties {
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      rotationStep 0.26179
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+    }
+    DEF ps1_plate DistanceSensor {
+      translation 0.05 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0.5 0.5
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps1_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Shape {
+        appearance PBRAppearance {
+        }
+        geometry Box {
+          size 0.01 0.03 0.01
+        }
+      }
+      physics Physics {
+      }
+      recognitionColors [
+        1 0 0
+      ]
+      lookupTable [
+        0 0.9 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF ps3_plate DistanceSensor {
+      translation -0.05 0 0
+      rotation 0 1 0 -3.0106996938995745
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 1
+          }
+          geometry Box {
+            size 0.01 0.03 0.01
+          }
+        }
+      ]
+      name "ps3_plate"
+      immersionProperties [
+        ImmersionProperties {
+          fluidName "water"
+        }
+      ]
+      boundingObject Box {
+        size 0.01 0.03 0.01
+      }
+      physics Physics {
+      }
+      lookupTable [
+        0 0.3 0
+        0.9 1000 0.1
+      ]
+      type "sonar"
+      numberOfRays 2
+      aperture 1
+      resolution 0.5
+    }
+    DEF gps_side_4 GPS {
+      translation 0 0.01 -0.05
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.5 1 0.5
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+      name "gps_side_4"
+    }
+    DEF prop2 Propeller {
+      shaftAxis 0 0 1
+      centerOfThrust 0 0 0.6
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor2 RotationalMotor {
+        name "motor2"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 0.06
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF prop4 Propeller {
+      shaftAxis 0 0 -1
+      centerOfThrust 0.2 0.05 0
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor4 RotationalMotor {
+        name "motor4"
+        acceleration 10
+        maxVelocity 15
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0 0 -0.05
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.05
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    Transform {
+    }
+    DEF prop3 Propeller {
+      shaftAxis -1 0 0
+      centerOfThrust 0 0.05 -0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor3 RotationalMotor {
+        name "motor3"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation -0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        immersionProperties [
+          ImmersionProperties {
+            fluidName "water"
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+        locked TRUE
+      }
+    }
+    DEF prop1 Propeller {
+      centerOfThrust 0 0.5 0.2
+      thrustConstants 0.5 0.5
+      torqueConstants 0.5 0.5
+      fastHelixThreshold 0.5
+      device DEF motor1 RotationalMotor {
+        name "motor1"
+        acceleration 10
+        maxTorque 1
+      }
+      fastHelix Solid {
+        translation 0.05 0 0
+        rotation 0 0 1 1.57
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "/Users/mariamannone/Desktop/xyz_robot/webot2/new_project_from_tutorial_and_customized/controllers/provaa_odometry/helix_.jpg"
+                ]
+              }
+              transparency 0.5
+              roughness 0.5
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject Cylinder {
+          height 0.01
+          radius 0.05
+        }
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.2 0.2
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.03 0.1
+      }
+    }
+  ]
+  name "plate_2"
+  immersionProperties [
+    ImmersionProperties {
+      fluidName "water"
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.03 0.1
+  }
+  physics Physics {
+    density 10
+    mass 0.04
+    centerOfMass [
+      0 0 0
+    ]
+    inertiaMatrix [
+      1 1 1
+      0 0 0
+    ]
+    damping Damping {
+    }
+  }
+  controller "weird_prop2"
+  battery [
+    0
+  ]
+}
+Solid {
+  translation 0.08 0.0015 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+      }
+      geometry Cylinder {
+        height 0.02
+        radius 0.03
+      }
+    }
+  ]
+  name "trash"
+  boundingObject Cylinder {
+    height 0.02
+    radius 0.03
+  }
+  physics Physics {
+  }
+  recognitionColors [
+    0.2 0.2 0.2
+  ]
+}
+Solid {
+  translation 0.01 0.0011 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+      }
+      geometry Cylinder {
+        height 0.02
+        radius 0.03
+      }
+    }
+  ]
+  name "trash(1)"
+  boundingObject Cylinder {
+    height 0.02
+    radius 0.03
+  }
+  physics Physics {
+  }
+  recognitionColors [
+    0.2 0.2 0.2
+  ]
+}
+Solid {
+  translation 0.29 0.0011 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+      }
+      geometry Cylinder {
+        height 0.02
+        radius 0.03
+      }
+    }
+  ]
+  name "trash(2)"
+  boundingObject Cylinder {
+    height 0.02
+    radius 0.03
+  }
+  physics Physics {
+  }
+  recognitionColors [
+    0.2 0.2 0.2
+  ]
+}
+Solid {
+  translation 0.07 0.0011 -0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+      }
+      geometry Cylinder {
+        height 0.02
+        radius 0.03
+      }
+    }
+  ]
+  name "trash(3)"
+  boundingObject Cylinder {
+    height 0.02
+    radius 0.03
+  }
+  physics Physics {
+  }
+  recognitionColors [
+    0.2 0.2 0.2
+  ]
+}
+BiscuitBox {
+  translation -0.4 0 0.2
+  size 0.12 0.02 0.07
+}
+Ball {
+  translation -0.7 0.05 0.3
+  color 0 1 1
+  mass 0.02
+}
+Ball {
+  translation -0.8 0.05 0.45
+  name "ball2"
+  color 0 0.8 0.5
+  mass 0.02
+}
+Robot {
+  translation 0.5998 0.05 -0.664591
+  children [
+    Transform {
+      translation 0 0.08 0.22
+      rotation 1 0 0 1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.03 0.03
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.06 0.2
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.08 0.01
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.02 0.18
+      rotation 1 0 0 1.31
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+          }
+          geometry Cone {
+            bottomRadius 0.04
+            height 0.08
+          }
+        }
+      ]
+    }
+    Shape {
+    }
+    Transform {
+      translation 0 0.02 -0.18
+      rotation 1 0 0 -1.3090003061004252
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+          }
+          geometry Cone {
+            bottomRadius 0.04
+            height 0.08
+          }
+        }
+      ]
+      translationStep 0
+      rotationStep 0
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.3
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.04 0.3
+  }
+}
